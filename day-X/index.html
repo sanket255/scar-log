@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ✏️ CHANGE: update day number and title -->
+<title>Day X — Your Title Here</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav class="nav-bar" id="nav-top"></nav>
+
+<!-- =====================
+     PAGE 1
+===================== -->
+<div class="page">
+  <div class="tape"></div>
+  <div class="holes">
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div>
+  </div>
+
+  <!-- ✏️ CHANGE: date, day number, title, subtitle tagline -->
+  <div class="date-stamp">Month DD, YYYY &nbsp;·&nbsp; time of day</div>
+  <div class="day-title">Day <span>X</span><br>Your Title Here</div>
+  <div class="subtitle">a dev diary by scar &nbsp;/&nbsp; day X of ∞</div>
+
+  <!-- ✏️ CHANGE: opening paragraph — set the scene/mood -->
+  <p class="opener">
+    Write your opening line here. Make it punchy. This is the hook.
+  </p>
+
+  <!-- ✏️ CHANGE: sections below. Use .label for section headings. -->
+  <div class="label">section heading</div>
+  <p>
+    Your content here. Use <span class="hl">highlighted text</span> for emphasis,
+    <strong>bold</strong> for data/facts, and <em>italic</em> for asides.
+  </p>
+
+  <p>
+    Another paragraph. Keep them short. This isn't an essay.
+  </p>
+
+  <!-- Callout box — use for key insights, funny asides, or quotes -->
+  <div class="callout">
+    Something worth calling out. A realization, a funny moment, a quote.
+    Works best when it's 2–3 lines max.
+  </div>
+
+  <p>
+    Wrap up page 1 content here. The page naturally breaks at ~297mm.
+    If you have more content, add PAGE 2 below.
+  </p>
+
+  <div class="pg-num">1 / 3</div>
+</div>
+
+<!-- =====================
+     PAGE 2
+===================== -->
+<div class="page">
+  <div class="holes">
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div>
+  </div>
+
+  <!-- ✏️ CHANGE: continue content here -->
+  <div class="label">another section</div>
+  <p>
+    Page 2 content. Same rules. Keep it honest and a little funny.
+    Use <span class="strike">strikethrough</span> for hesitation/sarcasm.
+  </p>
+
+  <div class="callout">
+    Another callout if needed.
+  </div>
+
+  <p>
+    End page 2 with something that sets up the closer.
+  </p>
+
+  <!-- ✏️ CHANGE: your sign-off and time -->
+  <div class="sig">
+    <div class="sig-name">— scar</div>
+    <div class="sig-time">HH:MM PM &nbsp;·&nbsp; status note</div>
+  </div>
+
+  <div class="pg-num">2 / 3</div>
+</div>
+
+<!-- =====================
+     PAGE 3 — Short closer
+     Keep this to 3–4 lines. It's the landing.
+===================== -->
+<div class="page page-last">
+  <div class="tape tape-b"></div>
+  <div class="holes">
+    <div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div>
+  </div>
+
+  <!-- ✏️ CHANGE: the realization / closing thought -->
+  <div class="label">the actual realization</div>
+
+  <p class="closer">
+    Your closing thought here. This is the part that hits.
+    Make it honest. One insight. <strong>Say it plainly.</strong>
+    <br><br>
+    Two or three lines is enough.
+    Don't over-explain it.
+    <br><br>
+    That's enough. That's the whole thing.
+  </p>
+
+  <div class="pg-num">3 / 3</div>
+</div>
+
+<nav class="nav-bar" id="nav-bottom"></nav>
+
+<!-- =====================================================
+     NAVIGATION SCRIPT
+     
+     Step 1: Set currentDay to this page's day number
+     Step 2: Add this day's number to existingDays array
+             in ALL day pages (so nav links work correctly)
+     
+     That's it. You're done.
+====================================================== -->
+<script>
+  const currentDay = 0; // ✏️ CHANGE THIS to this page's day number
+
+  // ✏️ ADD this new day number to this list
+  const existingDays = [0, 1, 2];
+
+  function buildNav(targetId) {
+    const nav = document.getElementById(targetId);
+    if (!nav) return;
+
+    const hasPrev = existingDays.includes(currentDay - 1);
+    const hasNext = existingDays.includes(currentDay + 1);
+
+    const prevHTML = hasPrev
+      ? `<a class="nav-btn" href="../day-${currentDay - 1}/">← Day ${currentDay - 1}</a>`
+      : `<span></span>`;
+
+    const nextHTML = hasNext
+      ? `<a class="nav-btn" href="../day-${currentDay + 1}/">Day ${currentDay + 1} →</a>`
+      : `<span></span>`;
+
+    nav.innerHTML = `
+      ${prevHTML}
+      <a class="nav-center" href="../">↑ all entries</a>
+      ${nextHTML}
+    `;
+  }
+
+  buildNav('nav-top');
+  buildNav('nav-bottom');
+</script>
+
+</body>
+</html>
