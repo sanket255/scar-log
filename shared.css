@@ -150,6 +150,11 @@ body {
   margin-bottom: 4px;
   transition: color 0.3s ease;
 }
+
+@media (max-width: 480px) {
+  .day-title { font-size: 26px; }
+}
+
 .day-title span { color: var(--accent); }
 
 .subtitle {
@@ -219,7 +224,7 @@ p {
   justify-content: space-between;
   align-items: flex-end;
 }
-.sig-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 18px; }
+.sig-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 18px;  white-space: nowrap; }
 .sig-time { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.1em; }
 
 /* ── Page Number ── */
@@ -297,3 +302,30 @@ p {
   .page { box-shadow: none; margin: 0; border-radius: 0; page-break-after: always; }
   .nav-bar { display: none; }
 }
+
+
+@media (max-width: 480px) {
+  .page {
+    padding: 36px 24px 36px 48px;
+  }
+  .page::before {
+    left: 36px; /* margin line shifts with it */
+  }
+  .holes {
+    left: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-bar {
+    gap: 6px;
+  }
+  .nav-btn, #theme-toggle {
+    font-size: 9px;
+    padding: 6px 8px;
+  }
+  .nav-center a {
+    font-size: 9px;
+  }
+}
+
