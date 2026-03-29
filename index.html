@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>scar's dev diary</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+  /* ── Index-specific styles ── */
+
+  /* Single page, no min-height override */
+  .index-page {
+    min-height: auto;
+    padding-bottom: 64px;
+  }
+
+  /* Site header inside page */
+  .site-header {
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px dashed rgba(138,126,110,0.4);
+  }
+
+  .site-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .site-title span { color: var(--accent); }
+
+  .site-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* Day list */
+  .day-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .day-item {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px dashed rgba(138,126,110,0.2);
+    text-decoration: none;
+    color: var(--ink);
+    transition: padding-left 0.15s;
+  }
+  .day-item:hover { padding-left: 6px; }
+  .day-item:hover .day-item-num { color: var(--accent); }
+
+  .day-item-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    min-width: 52px;
+    transition: color 0.15s;
+  }
+
+  .day-item-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 18px;
+    flex: 1;
+  }
+
+  .day-item-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+
+  /* Latest tag */
+  .latest-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--paper);
+    background: var(--accent);
+    padding: 2px 7px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  /* Footer note */
+  .index-footer {
+    margin-top: 36px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-align: center;
+    opacity: 0.6;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HOMEPAGE — Lists all diary entries
+     To add a new day: copy one <li> block and update the fields
+     ============================================================ -->
+
+<div class="page index-page">
+  <div class="tape"></div>
+
+  <!-- Spiral holes -->
+  <div class="holes">
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+  </div>
+
+  <!-- Header -->
+  <div class="site-header">
+    <div class="site-title">scar's<br><span>dev diary</span></div>
+    <button id="theme-toggle" style="position:absolute;top:28px;right:40px;">☾ dark</button>
+  <div class="site-meta" style="margin-top:10px;">started march 2026 &nbsp;·&nbsp; one day at a time &nbsp;·&nbsp; ∞ entries planned</div>
+  </div>
+
+  <!-- ── DAY LIST ──
+       Add new entries at the TOP (newest first).
+       Fields to update per entry:
+         href     → path to day folder
+         num      → day number label
+         title    → post title
+         date     → readable date
+         latest   → add class "latest-badge" span only on the newest entry
+  -->
+  <ul class="day-list">
+
+    <!-- NEWEST ENTRY FIRST -->
+      <li>
+      <a class="day-item" href="day-3/index.html">
+        <span class="day-item-num">day 3</span>
+        <span class="day-item-title">The Pace Shift</span>
+        <span class="latest-badge">latest</span>
+        <span class="day-item-date">Mar 19</span>
+      </a>
+    </li>
+    <li>
+      <a class="day-item" href="day-2/index.html">
+        <span class="day-item-num">day 2</span>
+        <span class="day-item-title">The Slow Grind</span>
+        <!-- <span class="latest-badge">latest</span> -->
+        <span class="day-item-date">Mar 18</span>
+      </a>
+    </li>
+
+    <li>
+      <a class="day-item" href="day-1/index.html">
+        <span class="day-item-num">day 1</span>
+        <span class="day-item-title">Three Hours &amp; a Dictionary</span>
+        <span class="day-item-date">Mar 17</span>
+      </a>
+    </li>
+
+    <li>
+      <a class="day-item" href="day-0/index.html">
+        <span class="day-item-num">day 0</span>
+        <span class="day-item-title">The Calculator Kid</span>
+        <span class="day-item-date">Mar 16</span>
+      </a>
+    </li>
+
+  </ul>
+  <!-- ── END DAY LIST ── -->
+
+  <div class="index-footer">updated whenever the brain works &nbsp;·&nbsp; by scar</div>
+</div>
+
+<script>
+  (function(){
+    var root = document.documentElement;
+    var btn  = document.getElementById('theme-toggle');
+    var saved = localStorage.getItem('diary-theme') || 'light';
+    root.setAttribute('data-theme', saved);
+    if (btn) btn.textContent = saved === 'dark' ? '☀ light' : '☾ dark';
+    if (btn) btn.addEventListener('click', function(){
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('diary-theme', next);
+      btn.textContent = next === 'dark' ? '☀ light' : '☾ dark';
+    });
+  })();
+</script>
+</body>
+</html>

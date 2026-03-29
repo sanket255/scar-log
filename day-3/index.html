@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 3 — The Pace Shift</title>
+<link rel="stylesheet" href="../shared.css">
+</head>
+<body>
+
+<nav class="nav-bar">
+  <a class="nav-btn" id="nav-prev" href="#">← prev day</a>
+  <div class="nav-center"><a href="../index.html">↑ all entries</a><button id="theme-toggle">☾ dark</button></div>
+  <a class="nav-btn" id="nav-next" href="#">next day →</a>
+</nav>
+
+<script>
+  const currentDay = 3;
+  const FIRST_DAY  = 0;
+  const LAST_DAY   = 3; // ← bump this when you add day 4
+  const p = document.getElementById('nav-prev'), n = document.getElementById('nav-next');
+  if (currentDay <= FIRST_DAY) p.classList.add('hidden'); else p.href = `../day-${currentDay-1}/index.html`;
+  if (currentDay >= LAST_DAY)  n.classList.add('hidden'); else n.href = `../day-${currentDay+1}/index.html`;
+</script>
+
+
+<!-- PAGE 1 -->
+<div class="page">
+  <div class="tape"></div>
+  <div class="holes">
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div>
+  </div>
+
+  <div class="date-stamp">March 18, 2026 &nbsp;·&nbsp; 3:15 PM, post-clarity</div>
+  <div class="day-title">Day <span>3</span><br>The Pace Shift</div>
+  <div class="subtitle">a dev diary by scar &nbsp;/&nbsp; episode 3 of ∞</div>
+
+  <p class="opener">
+    Rest changes everything. Not motivationally. Not philosophically.
+    Just — <em>chemically, measurably, actually.</em>
+    Woke up today and the fog was gone. Didn't earn it. Just slept.
+  </p>
+
+  <div class="label">the numbers first, for context</div>
+  <p>
+    Yesterday: <strong>1 hour 8 minutes</strong> for a guessing game.
+    Today: <strong>47 minutes</strong> for a calculator, <strong>20 minutes</strong> for a palindrome checker.
+    Same brain. One night of sleep. Different human.
+  </p>
+
+  <p>
+    That's not speed. That's understanding that finally found somewhere to land.
+  </p>
+
+  <div class="label">the calculator, round two</div>
+  <p>
+    Same concept as yesterday's struggle. But cleaner this time — actually thought through
+    the logic instead of guessing at it and hoping something would compile into dignity.
+  </p>
+
+  <div class="callout">
+    Changed the loop condition from
+    <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">ask == "y"</code>
+    to
+    <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">ask != "quit"</code>.
+    One change. Everything clicked.
+    Nobody told me. I saw it, knew it was wrong, fixed it.
+    That's the difference between copying and learning.
+  </div>
+
+  <p>
+    47 minutes. Could've been faster. Didn't try to be.
+    <span class="hl">Stopping to think is not the same as going slow.</span>
+    Took me three days to figure that out.
+  </p>
+
+  <div class="pg-num">1 / 3</div>
+</div>
+
+
+<!-- PAGE 2 -->
+<div class="page">
+  <div class="holes">
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div>
+  </div>
+
+  <div class="label">the palindrome wall (2:15 PM)</div>
+  <p>
+    Started feeling confident. Confidence is just hubris with better posture.
+    Couldn't figure out how to reverse a string.
+    Read some code. Didn't understand it. Built it anyway.
+    Hit a wall. Sat there for <strong>25 minutes</strong> just vibing with my own confusion.
+  </p>
+
+  <p>
+    Then found an explanation of
+    <code style="font-family:'DM Mono',monospace;font-size:14px;background:var(--cream);padding:1px 6px;border-radius:2px">[::-1]</code>.
+    Not just the syntax — <em>the why.</em> How slicing works. What the negative step actually means.
+    The whole thing laid out like it was obvious, which it was,
+    after 25 minutes of being wrong about it.
+  </p>
+
+  <div class="callout">
+    Read it. Understood it. Coded it clean in 20 minutes.
+    Struggled for 25. Understood in 20. Will remember forever.
+    If someone had just handed me the answer yesterday when I was tired,
+    I'd have copied it and moved on and forgotten it by morning.
+    The wall was the point.
+  </div>
+
+  <div class="label">what day 3 actually means</div>
+  <p>
+    Day 0 — learning syntax. Day 1 — data structures.
+    Day 2 — loops, <span class="strike">barely</span> surviving.
+    Day 3 — actually building things.
+  </p>
+  <p>
+    Not because I got smarter. Because I let it settle.
+    Rest isn't laziness. <span class="hl">It's infrastructure.</span>
+    The code I write tomorrow will be better because I stopped today.
+  </p>
+
+  <div class="sig">
+    <div class="sig-name">— scar</div>
+    <div class="sig-time">3:15 PM &nbsp;·&nbsp; knowing when to stop</div>
+  </div>
+
+  <div class="pg-num">2 / 3</div>
+</div>
+
+
+<!-- PAGE 3 — Short closer -->
+<div class="page page-last">
+  <div class="tape tape-b"></div>
+  <div class="holes">
+    <div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div>
+  </div>
+
+  <div class="label">the actual realization</div>
+
+  <p class="closer">
+    Struggled for 25 minutes. Understood in 20. Remembered forever.
+    <br><br>
+    Turns out the wall isn't the obstacle.
+    <strong>The wall is the teacher</strong> — it just doesn't tell you that
+    while you're sitting there looking stupid in front of your laptop.
+    <br><br>
+    That's the move.
+  </p>
+
+  <div class="pg-num">3 / 3</div>
+</div>
+
+
+<script>
+  (function(){
+    var root = document.documentElement;
+    var btn  = document.getElementById('theme-toggle');
+    var saved = localStorage.getItem('diary-theme') || 'light';
+    root.setAttribute('data-theme', saved);
+    if (btn) btn.textContent = saved === 'dark' ? '☀ light' : '☾ dark';
+    if (btn) btn.addEventListener('click', function(){
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('diary-theme', next);
+      btn.textContent = next === 'dark' ? '☀ light' : '☾ dark';
+    });
+  })();
+</script>
+
+</body>
+</html>
