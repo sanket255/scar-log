@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Day 7 — Functions Meet Files</title>
+<title>Day 8 — The Journal Lives</title>
 <link rel="stylesheet" href="../shared.css">
 </head>
 <body>
@@ -15,9 +15,9 @@
 </nav>
 
 <script>
-  const currentDay = 7;
+  const currentDay = 8;
   const FIRST_DAY  = 0;
-  const LAST_DAY   = 8;// ← bump this when you add day 8
+  const LAST_DAY   = 8;// ← bump this when you add day 9
   const p = document.getElementById('nav-prev'), n = document.getElementById('nav-next');
   if (currentDay <= FIRST_DAY) p.classList.add('hidden'); else p.href = `../day-${currentDay-1}/index.html`;
   if (currentDay >= LAST_DAY)  n.classList.add('hidden'); else n.href = `../day-${currentDay+1}/index.html`;
@@ -32,43 +32,42 @@
     <div class="hole"></div><div class="hole"></div>
   </div>
 
-  <div class="date-stamp">March 21, 2026 &nbsp;·&nbsp; should've been simple, was not</div>
-  <div class="day-title">Day <span>7</span><br>Functions Meet Files</div>
-  <div class="subtitle">a dev diary by scar &nbsp;/&nbsp; episode 7 of ∞</div>
+  <div class="date-stamp">March 22, 2026 &nbsp;·&nbsp; this one actually works</div>
+  <div class="day-title">Day <span>8</span><br>The Journal Lives</div>
+  <div class="subtitle">a dev diary by scar &nbsp;/&nbsp; episode 8 of ∞</div>
 
   <p class="opener">
-    Built something today that looked simple on paper.
-    Which, historically, is how I know it’s about to go wrong.
-  </p>
-
-  <div class="label">what i thought i was building</div>
-  <p>
-    A note manager.
-    Write notes. Read notes. Loop until you quit.
-    Functions + files. Two things I already "understood."
+    Built a real app today.
+    Not practice. Not a “toy project.”
+    Something I could actually use.
   </p>
 
   <p>
-    Which means, naturally, I made it way more complicated than it needed to be.
-  </p>
-
-  <div class="label">the mess (self-inflicted)</div>
-  <p>
-    Started with one variable doing everything.
-    <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">date</code>
-    was handling input, decisions, life choices — all of it.
+    It saves. It reads. It searches.
+    It works.
   </p>
 
   <p>
-    Conditions were checking the wrong thing.
-    Flow made no sense.
-    The code technically existed, but it wasn't… thinking.
+    Finished it in 32 minutes.
+    Which feels suspicious, considering yesterday existed.
+  </p>
+
+  <div class="label">what changed</div>
+  <p>
+    Yesterday: 2 hours fighting <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">main()</code>.
+    Today: wrote it in minutes.
+  </p>
+
+  <p>
+    Same idea. Same structure.
+    Just… no resistance this time.
   </p>
 
   <div class="callout">
-    This is a pattern now:
-    I don’t fail because something is hard.
-    I fail because I try to be clever before being clear.
+    This is new:
+    The code didn’t fight back.
+    <br><br>
+    Which probably means I’m finally starting to understand what I’m doing.
   </div>
 
   <div class="pg-num">1 / 3</div>
@@ -83,52 +82,48 @@
     <div class="hole"></div><div class="hole"></div>
   </div>
 
-  <div class="label">the fix (boring, effective)</div>
+  <div class="label">the structure (kept it boring)</div>
   <p>
-    One variable.
-    Clear options.
-    No overthinking.
+    One loop.
+    One question.
+    Four options: save, read, search, quit.
   </p>
 
   <p>
-    Ask user what they want.
-    Call the function.
-    Loop.
-  </p>
-
-  <p>
-    That’s it. That was the whole solution.
-    Not new knowledge. Just cleaner thinking.
+    No extra logic. No clever tricks.
+    Just:
   </p>
 
   <div class="callout">
-    <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">
-    if ask == "s" or "w":
-    </code>
-    <br><br>
-    This line worked. Which was the problem.
-    It always worked.
+    ask → decide → call function → repeat
   </div>
 
   <p>
-    Turns out <code>"w"</code> is always <em>true</em>.
-    So the condition was basically:
-    <br><br>
-    <em>"if anything happens, do this."</em>
+    That’s the whole app.
+    Which is slightly annoying, considering how complicated I made this yesterday.
+  </p>
+
+  <div class="label">the search thing</div>
+  <p>
+    Didn’t overthink it.
   </p>
 
   <p>
-    Fixed it:
-    <br>
-    <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">
-    if ask == "s" or ask == "w":
-    </code>
+    Loop through the file.
+    Check if the keyword exists.
+    Print the line.
   </p>
 
   <p>
-    One extra comparison.
-    Completely different logic.
+    That’s it.
+    No fancy structures. No “smart” solutions.
+    Just the obvious one.
   </p>
+
+  <div class="callout">
+    Turns out “simple” only works
+    after you stop trying to be impressive.
+  </div>
 
   <div class="pg-num">2 / 3</div>
 </div>
@@ -145,24 +140,24 @@
   <div class="label">the actual realization</div>
 
   <p class="closer">
-    Functions handle one thing.
-    Files remember things.
-    Main decides what happens.
+    Yesterday I was figuring out how things work.
+    Today I just… used them.
     <br><br>
-    That’s the system.
-    Not complicated. Just easy to mess up if you don’t respect it.
+    Same concepts.
+    Different feeling.
     <br><br>
-    Combining concepts isn’t harder.
-    It just exposes whether you actually understand them.
+    Repetition doesn’t make things easier.
+    It makes them obvious.
     <br><br>
-    Today, I mostly did.
+    And once something feels obvious,
+    you stop fighting it.
     <br><br>
-    That’s enough.
+    That’s when things start to move.
   </p>
 
   <div class="sig">
     <div class="sig-name">— scar</div>
-    <div class="sig-time">night of march 21 &nbsp;·&nbsp; simpler than it looked</div>
+    <div class="sig-time">8:47 PM &nbsp;·&nbsp; muscle memory kicking in</div>
   </div>
 
   <div class="pg-num">3 / 3</div>
