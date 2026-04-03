@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 7 — Functions Meet Files</title>
+<link rel="stylesheet" href="../shared.css">
+</head>
+<body>
+
+<nav class="nav-bar">
+  <a class="nav-btn" id="nav-prev" href="#">← prev day</a>
+  <div class="nav-center"><a href="../index.html">↑ all entries</a><button id="theme-toggle">☾ dark</button></div>
+  <a class="nav-btn" id="nav-next" href="#">next day →</a>
+</nav>
+
+<script>
+  const currentDay = 7;
+  const FIRST_DAY  = 0;
+  const LAST_DAY   = 7;// ← bump this when you add day 8
+  const p = document.getElementById('nav-prev'), n = document.getElementById('nav-next');
+  if (currentDay <= FIRST_DAY) p.classList.add('hidden'); else p.href = `../day-${currentDay-1}/index.html`;
+  if (currentDay >= LAST_DAY)  n.classList.add('hidden'); else n.href = `../day-${currentDay+1}/index.html`;
+</script>
+
+<!-- PAGE 1 -->
+<div class="page">
+  <div class="tape"></div>
+  <div class="holes">
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div>
+  </div>
+
+  <div class="date-stamp">March 21, 2026 &nbsp;·&nbsp; should've been simple, was not</div>
+  <div class="day-title">Day <span>7</span><br>Functions Meet Files</div>
+  <div class="subtitle">a dev diary by scar &nbsp;/&nbsp; episode 7 of ∞</div>
+
+  <p class="opener">
+    Built something today that looked simple on paper.
+    Which, historically, is how I know it’s about to go wrong.
+  </p>
+
+  <div class="label">what i thought i was building</div>
+  <p>
+    A note manager.
+    Write notes. Read notes. Loop until you quit.
+    Functions + files. Two things I already "understood."
+  </p>
+
+  <p>
+    Which means, naturally, I made it way more complicated than it needed to be.
+  </p>
+
+  <div class="label">the mess (self-inflicted)</div>
+  <p>
+    Started with one variable doing everything.
+    <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">date</code>
+    was handling input, decisions, life choices — all of it.
+  </p>
+
+  <p>
+    Conditions were checking the wrong thing.
+    Flow made no sense.
+    The code technically existed, but it wasn't… thinking.
+  </p>
+
+  <div class="callout">
+    This is a pattern now:
+    I don’t fail because something is hard.
+    I fail because I try to be clever before being clear.
+  </div>
+
+  <div class="pg-num">1 / 3</div>
+</div>
+
+
+<!-- PAGE 2 -->
+<div class="page">
+  <div class="holes">
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div>
+  </div>
+
+  <div class="label">the fix (boring, effective)</div>
+  <p>
+    One variable.
+    Clear options.
+    No overthinking.
+  </p>
+
+  <p>
+    Ask user what they want.
+    Call the function.
+    Loop.
+  </p>
+
+  <p>
+    That’s it. That was the whole solution.
+    Not new knowledge. Just cleaner thinking.
+  </p>
+
+  <div class="callout">
+    <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">
+    if ask == "s" or "w":
+    </code>
+    <br><br>
+    This line worked. Which was the problem.
+    It always worked.
+  </div>
+
+  <p>
+    Turns out <code>"w"</code> is always <em>true</em>.
+    So the condition was basically:
+    <br><br>
+    <em>"if anything happens, do this."</em>
+  </p>
+
+  <p>
+    Fixed it:
+    <br>
+    <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">
+    if ask == "s" or ask == "w":
+    </code>
+  </p>
+
+  <p>
+    One extra comparison.
+    Completely different logic.
+  </p>
+
+  <div class="pg-num">2 / 3</div>
+</div>
+
+
+<!-- PAGE 3 -->
+<div class="page page-last">
+  <div class="tape tape-b"></div>
+  <div class="holes">
+    <div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div>
+  </div>
+
+  <div class="label">the actual realization</div>
+
+  <p class="closer">
+    Functions handle one thing.
+    Files remember things.
+    Main decides what happens.
+    <br><br>
+    That’s the system.
+    Not complicated. Just easy to mess up if you don’t respect it.
+    <br><br>
+    Combining concepts isn’t harder.
+    It just exposes whether you actually understand them.
+    <br><br>
+    Today, I mostly did.
+    <br><br>
+    That’s enough.
+  </p>
+
+  <div class="sig">
+    <div class="sig-name">— scar</div>
+    <div class="sig-time">night of march 21 &nbsp;·&nbsp; simpler than it looked</div>
+  </div>
+
+  <div class="pg-num">3 / 3</div>
+</div>
+
+
+<script>
+  (function(){
+    var root = document.documentElement;
+    var btn  = document.getElementById('theme-toggle');
+    var saved = localStorage.getItem('diary-theme') || 'light';
+    root.setAttribute('data-theme', saved);
+    if (btn) btn.textContent = saved === 'dark' ? '☀ light' : '☾ dark';
+    if (btn) btn.addEventListener('click', function(){
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('diary-theme', next);
+      btn.textContent = next === 'dark' ? '☀ light' : '☾ dark';
+    });
+  })();
+</script>
+
+</body>
+</html>

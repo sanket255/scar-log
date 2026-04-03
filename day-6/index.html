@@ -17,7 +17,7 @@
 <script>
   const currentDay = 6;
   const FIRST_DAY  = 0;
-  const LAST_DAY   = 6;// ← bump this when you add day 6
+  const LAST_DAY   = 7;// ← bump this when you add day 7
   const p = document.getElementById('nav-prev'), n = document.getElementById('nav-next');
   if (currentDay <= FIRST_DAY) p.classList.add('hidden'); else p.href = `../day-${currentDay-1}/index.html`;
   if (currentDay >= LAST_DAY)  n.classList.add('hidden'); else n.href = `../day-${currentDay+1}/index.html`;
