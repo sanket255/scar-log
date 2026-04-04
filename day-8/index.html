@@ -17,7 +17,7 @@
 <script>
   const currentDay = 8;
   const FIRST_DAY  = 0;
-  const LAST_DAY   = 8;// ← bump this when you add day 9
+  const LAST_DAY   = 9;// ← bump this when you add day 9
   const p = document.getElementById('nav-prev'), n = document.getElementById('nav-next');
   if (currentDay <= FIRST_DAY) p.classList.add('hidden'); else p.href = `../day-${currentDay-1}/index.html`;
   if (currentDay >= LAST_DAY)  n.classList.add('hidden'); else n.href = `../day-${currentDay+1}/index.html`;
@@ -37,38 +37,33 @@
   <div class="subtitle">a dev diary by scar &nbsp;/&nbsp; episode 8 of ∞</div>
 
   <p class="opener">
-    Built a real app today.
-    Not practice. Not a “toy project.”
-    Something I could actually use.
+    Built a real app today. Not practice. Not a "toy project."
+    Something I could actually use — saves notes, reads them back, searches them.
+    Finished in 32 minutes. Which feels suspicious, considering yesterday existed.
   </p>
 
+  <div class="label">what changed overnight</div>
   <p>
-    It saves. It reads. It searches.
-    It works.
-  </p>
-
-  <p>
-    Finished it in 32 minutes.
-    Which feels suspicious, considering yesterday existed.
-  </p>
-
-  <div class="label">what changed</div>
-  <p>
-    Yesterday: 2 hours fighting <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">main()</code>.
-    Today: wrote it in minutes.
-  </p>
-
-  <p>
-    Same idea. Same structure.
-    Just… no resistance this time.
+    Yesterday: 2 hours fighting
+    <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">main()</code>.
+    Today: wrote the whole thing in minutes. Same idea. Same structure.
+    Just no resistance this time.
   </p>
 
   <div class="callout">
-    This is new:
-    The code didn’t fight back.
-    <br><br>
-    Which probably means I’m finally starting to understand what I’m doing.
+    The code didn't fight back.
+    Which probably means I'm finally starting to understand what I'm doing.
+    Took eight days. Worth it.
   </div>
+
+  <div class="label">the structure (kept it boring on purpose)</div>
+  <p>
+    One loop. One question. Four options: save, read, search, quit.
+    No extra logic. No clever tricks. Just:
+    <em>ask → decide → call function → repeat.</em>
+    That's the whole app. Which is slightly annoying,
+    considering how complicated I made yesterday's version.
+  </p>
 
   <div class="pg-num">1 / 3</div>
 </div>
@@ -82,54 +77,45 @@
     <div class="hole"></div><div class="hole"></div>
   </div>
 
-  <div class="label">the structure (kept it boring)</div>
+  <div class="label">the search (the obvious solution)</div>
   <p>
-    One loop.
-    One question.
-    Four options: save, read, search, quit.
-  </p>
-
-  <p>
-    No extra logic. No clever tricks.
-    Just:
+    Loop through the file. Check if the keyword exists in the line. Print it.
+    That's it. No fancy data structures. No algorithm.
+    Just the obvious solution that I almost didn't use
+    because I was looking for something smarter.
   </p>
 
   <div class="callout">
-    ask → decide → call function → repeat
+    Turns out "simple" only works after you stop trying to be impressive.
+    The impressive part was already done — it's called "building the whole app."
   </div>
 
+  <div class="label">32 minutes vs 2 hours</div>
   <p>
-    That’s the whole app.
-    Which is slightly annoying, considering how complicated I made this yesterday.
-  </p>
-
-  <div class="label">the search thing</div>
-  <p>
-    Didn’t overthink it.
-  </p>
-
-  <p>
-    Loop through the file.
-    Check if the keyword exists.
-    Print the line.
+    Same concepts. Same file structure. Same function pattern.
+    Yesterday it took 2 hours and still didn't work right.
+    Today it took 32 minutes and works cleanly.
+    The difference isn't talent. It isn't even practice.
+    <span class="hl">It's the overnight processing.</span>
+    Sleep ran the compiler in the background. I just showed up for the output.
   </p>
 
   <p>
-    That’s it.
-    No fancy structures. No “smart” solutions.
-    Just the obvious one.
+    That's the part nobody tells you about learning to code —
+    some of it happens when you're not coding.
+    You just have to trust the process enough to actually stop for the night.
   </p>
 
-  <div class="callout">
-    Turns out “simple” only works
-    after you stop trying to be impressive.
+  <div class="sig">
+    <div class="sig-name">— scar</div>
+    <div class="sig-time">8:47 PM &nbsp;·&nbsp; muscle memory kicking in</div>
   </div>
 
   <div class="pg-num">2 / 3</div>
 </div>
 
 
-<!-- PAGE 3 -->
+<!-- PAGE 3 — Short closer -->
 <div class="page page-last">
   <div class="tape tape-b"></div>
   <div class="holes">
@@ -143,22 +129,12 @@
     Yesterday I was figuring out how things work.
     Today I just… used them.
     <br><br>
-    Same concepts.
-    Different feeling.
+    Repetition doesn't make things easier.
+    <strong>It makes them obvious.</strong>
+    And once something feels obvious, you stop fighting it.
     <br><br>
-    Repetition doesn’t make things easier.
-    It makes them obvious.
-    <br><br>
-    And once something feels obvious,
-    you stop fighting it.
-    <br><br>
-    That’s when things start to move.
+    That's when things start to move.
   </p>
-
-  <div class="sig">
-    <div class="sig-name">— scar</div>
-    <div class="sig-time">8:47 PM &nbsp;·&nbsp; muscle memory kicking in</div>
-  </div>
 
   <div class="pg-num">3 / 3</div>
 </div>
