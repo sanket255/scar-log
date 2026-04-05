@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 10 — Quick and Dirty</title>
+<link rel="stylesheet" href="../shared.css">
+</head>
+<body>
+
+<nav class="nav-bar">
+  <a class="nav-btn" id="nav-prev" href="#">← prev day</a>
+  <div class="nav-center"><a href="../index.html">↑ all entries</a><button id="theme-toggle">☾ dark</button></div>
+  <a class="nav-btn" id="nav-next" href="#">next day →</a>
+</nav>
+
+<script>
+  const currentDay = 10;
+  const FIRST_DAY  = 0;
+  const LAST_DAY   = 10;
+  const p = document.getElementById('nav-prev'), n = document.getElementById('nav-next');
+  if (currentDay <= FIRST_DAY) p.classList.add('hidden'); else p.href = `../day-${currentDay-1}/index.html`;
+  if (currentDay >= LAST_DAY)  n.classList.add('hidden'); else n.href = `../day-${currentDay+1}/index.html`;
+</script>
+
+
+<!-- PAGE 1 -->
+<div class="page">
+  <div class="tape"></div>
+  <div class="holes">
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div>
+  </div>
+
+  <div class="date-stamp">March 24, 2026 &nbsp;·&nbsp; two digits. we're here.</div>
+  <div class="day-title">Day <span>10</span><br>Quick and Dirty</div>
+  <div class="subtitle">a dev diary by scar &nbsp;/&nbsp; episode 10 of ∞</div>
+
+  <p class="opener">
+    Built a quiz game in 20 minutes today.
+    It is not pretty. It is not clean. It has five nearly identical functions
+    that a computer science professor would use as a warning to students.
+    <em>It works perfectly.</em>
+  </p>
+
+  <div class="label">the code (a confession)</div>
+  <p>
+    Five questions. Five functions. Each one a copy-paste of the last
+    with a different question and a different answer hardcoded inside.
+    Fifty lines where ten would do. Genuinely terrible practice.
+    I know this. I knew it while writing it.
+    I wrote it anyway because I had thirty minutes and a working program
+    beats a clean skeleton every single time.
+  </p>
+
+  <div class="callout">
+    I could've done this instead — one function, a loop, a list of questions:
+    clean, elegant, reusable, ten lines total.
+    I did not do that.
+    I did the fast version and I am at peace with this decision.
+  </div>
+
+  <div class="label">fast & messy vs slow & clean</div>
+  <p>
+    This is the actual tension in coding that nobody warns you about.
+    <span class="hl">Fast and messy</span> — get it working now, fix it later,
+    ship the thing, hit the deadline.
+    <span class="hl">Slow and clean</span> — get it right immediately,
+    future-you will be grateful, present-you misses the event.
+  </p>
+  <p>
+    For a thirty-minute task under time pressure? Fast and messy wins.
+    For production code that six other people will read? Clean wins.
+    Knowing which situation you're in — <em>that's</em> the actual skill.
+    Today I was in a thirty-minute situation. Chose correctly.
+  </p>
+
+  <div class="pg-num">1 / 3</div>
+</div>
+
+
+<!-- PAGE 2 -->
+<div class="page">
+  <div class="holes">
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div>
+  </div>
+
+  <div class="label">the numbers (honest edition)</div>
+  <p>
+    Time: 20 minutes of actual coding.
+    Lines: 50+, most of them redundant.
+    Questions: 5.
+    Code quality: <span class="strike">good</span> <span class="strike">acceptable</span> terrible.
+    Functionality: perfect.
+  </p>
+  <p>
+    That last line is the only one that mattered today.
+    The program runs, the questions ask, the answers check,
+    the score counts. Every requirement met. Every line of code an affront to elegance.
+    Completely fine.
+  </p>
+
+  <div class="label">what day 10 actually means</div>
+  <p>
+    Ten days ago I didn't know what a variable was.
+    Today I wrote bad code <em>on purpose</em> — which means
+    I understand good code well enough to know what I was sacrificing.
+    You can only knowingly write messy code if you know what clean looks like.
+    That's not nothing. That's actually a lot.
+  </p>
+
+  <div class="callout">
+    Speed without understanding = useless.
+    Understanding without speed = procrastination.
+    Today I needed speed. Got it. Knew the cost. Paid it willingly.
+    That's the trade-off. That's the whole job sometimes.
+  </div>
+
+  <div class="sig">
+    <div class="sig-name">— scar</div>
+    <div class="sig-time">March 24, evening &nbsp;·&nbsp; day 10. two digits. let's go.</div>
+  </div>
+
+  <div class="pg-num">2 / 3</div>
+</div>
+
+
+<!-- PAGE 3 — Short closer -->
+<div class="page page-last">
+  <div class="tape tape-b"></div>
+  <div class="holes">
+    <div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div>
+  </div>
+
+  <div class="label">the actual realization</div>
+
+  <p class="closer">
+    Built something fast and messy.
+    Knew it was fast and messy while building it.
+    Shipped it anyway because the situation called for it.
+    <br><br>
+    Ten days ago I couldn't have made that call —
+    I didn't know enough to know what I was trading.
+    <br><br>
+    <strong>Now I do.</strong> That's day 10.
+  </p>
+
+  <div class="pg-num">3 / 3</div>
+</div>
+
+
+<script>
+  (function(){
+    var root = document.documentElement;
+    var btn  = document.getElementById('theme-toggle');
+    var saved = localStorage.getItem('diary-theme') || 'light';
+    root.setAttribute('data-theme', saved);
+    if (btn) btn.textContent = saved === 'dark' ? '☀ light' : '☾ dark';
+    if (btn) btn.addEventListener('click', function(){
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('diary-theme', next);
+      btn.textContent = next === 'dark' ? '☀ light' : '☾ dark';
+    });
+  })();
+</script>
+
+</body>
+</html>
