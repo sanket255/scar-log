@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 12 — Real Data From the Sky</title>
+<link rel="stylesheet" href="../shared.css">
+</head>
+<body>
+
+<nav class="nav-bar">
+  <a class="nav-btn" id="nav-prev" href="#">← prev day</a>
+  <div class="nav-center"><a href="../index.html">↑ all entries</a><button id="theme-toggle">☾ dark</button></div>
+  <a class="nav-btn" id="nav-next" href="#">next day →</a>
+</nav>
+
+<script>
+  const currentDay = 12;
+  const FIRST_DAY  = 0;
+  const LAST_DAY   = 12; // ← bump this when you add a new day
+  const p = document.getElementById('nav-prev'), n = document.getElementById('nav-next');
+  if (currentDay <= FIRST_DAY) p.classList.add('hidden'); else p.href = `../day-${currentDay-1}/index.html`;
+  if (currentDay >= LAST_DAY)  n.classList.add('hidden'); else n.href = `../day-${currentDay+1}/index.html`;
+</script>
+
+
+<!-- PAGE 1 -->
+<div class="page">
+  <div class="tape"></div>
+  <div class="holes">
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div>
+  </div>
+
+  <div class="date-stamp">March 26, 2026 &nbsp;·&nbsp; the sky has an API, apparently</div>
+  <div class="day-title">Day <span>12</span><br>Real Data From<br>the Sky</div>
+  <div class="subtitle">a dev diary by scar &nbsp;/&nbsp; episode 12 of ∞</div>
+
+  <p class="opener">
+    Built an app today that fetches actual weather data from actual cities
+    on the actual planet. Delhi. Mumbai. Indore. Quito.
+    Real temperatures. Real humidity. Real conditions.
+    My Python script asked the sky what was happening and the sky answered.
+    <em>This is not a drill.</em>
+  </p>
+
+  <div class="label">the nested dictionary problem</div>
+  <p>
+    Started confused about why
+    <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">data['temp_c']</code>
+    wasn't working. The data wasn't flat — it was a dictionary inside a dictionary,
+    like a box inside a box, which requires two sets of bracket notation to open.
+  </p>
+
+  <div class="callout">
+    <code style="font-family:'DM Mono',monospace;font-size:13px;padding:1px 4px;border-radius:2px">data['current']['temp_c']</code>
+    — get into <em>current</em> first, then get <em>temp_c</em> from inside it.
+    <br><br>
+    And <code style="font-family:'DM Mono',monospace;font-size:13px;padding:1px 4px;border-radius:2px">condition</code>?
+    That's a dictionary <em>inside</em> current. Three levels deep.
+    <code style="font-family:'DM Mono',monospace;font-size:13px;padding:1px 4px;border-radius:2px">data['current']['condition']['text']</code>.
+    Russian nesting dolls, but for weather data.
+    Once you see it, it's obvious. Before you see it, it just looks like a personal attack.
+  </div>
+
+  <div class="label">the honesty section (i peeked)</div>
+  <p>
+    Got stuck on the structure and looked at example code instead of figuring it out.
+    Not full copy-paste — just the shape of the thing.
+    <span class="hl">Still counts as cheating a little.</span>
+    Not proud of it. Next time I'll sit with the confusion longer before looking.
+    The confusion is where the learning lives.
+    I short-circuited it. Won't do that again.
+  </p>
+
+  <div class="pg-num">1 / 3</div>
+</div>
+
+
+<!-- PAGE 2 -->
+<div class="page">
+  <div class="holes">
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div>
+  </div>
+
+  <div class="label">the bugs (three of them, all fixed)</div>
+  <p>
+    <strong>Bug 1</strong> — tried to print
+    <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">condition</code>
+    as a string. It's a dictionary. You have to go one level deeper for
+    <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">['text']</code>.
+    The API gives you an object, not a sentence. Rude, but understandable.
+  </p>
+  <p>
+    <strong>Bug 2</strong> — loop started with
+    <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">city = 0</code>
+    then immediately checked
+    <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">while city != "quit"</code>.
+    A number will never equal the string "quit", so the loop ran forever
+    before even asking for input. Classic. Fixed by asking first, then looping.
+  </p>
+  <p>
+    <strong>Bug 3</strong> — typo in
+    <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">ConnectionTimeout</code>.
+    It's still there. I caught it. I am choosing to address it tomorrow.
+    This is called <em>technical debt</em> and I am accruing it deliberately.
+  </p>
+
+  <div class="label">what this actually means now</div>
+  <p>
+    Twelve days ago: couldn't add two numbers without help.
+    Today: fetching live weather data from four cities,
+    parsing three levels of nested JSON, handling API errors,
+    building two clean functions that work together.
+    <span class="hl">The internet is now a resource I can tap into from Python.</span>
+    That changes what's possible. Completely and permanently.
+  </p>
+
+  <div class="sig">
+    <div class="sig-name">— scar</div>
+    <div class="sig-time">late march 26 &nbsp;·&nbsp; sky: queried, answered</div>
+  </div>
+
+  <div class="pg-num">2 / 3</div>
+</div>
+
+
+<!-- PAGE 3 — Short closer -->
+<div class="page page-last">
+  <div class="tape tape-b"></div>
+  <div class="holes">
+    <div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div>
+  </div>
+
+  <div class="label">the actual realization</div>
+
+  <p class="closer">
+    Fetched real weather data from the actual sky.
+    Mumbai is humid. Quito is mild. My code knows this now.
+    <br><br>
+    The honesty: I peeked when I should've struggled.
+    The lesson: the confusion is where the understanding lives.
+    <strong>Don't skip it.</strong>
+    <br><br>
+    It's real now. All of it.
+  </p>
+
+  <div class="pg-num">3 / 3</div>
+</div>
+
+
+<script>
+  (function(){
+    var root = document.documentElement;
+    var btn  = document.getElementById('theme-toggle');
+    var saved = localStorage.getItem('diary-theme') || 'light';
+    root.setAttribute('data-theme', saved);
+    if (btn) btn.textContent = saved === 'dark' ? '☀ light' : '☾ dark';
+    if (btn) btn.addEventListener('click', function(){
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('diary-theme', next);
+      btn.textContent = next === 'dark' ? '☀ light' : '☾ dark';
+    });
+  })();
+</script>
+
+</body>
+</html>
