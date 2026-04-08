@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 13 — Organized Code</title>
+<link rel="stylesheet" href="../shared.css">
+</head>
+<body>
+
+<nav class="nav-bar">
+  <a class="nav-btn" id="nav-prev" href="#">← prev day</a>
+  <div class="nav-center"><a href="../index.html">↑ all entries</a><button id="theme-toggle">☾ dark</button></div>
+  <a class="nav-btn" id="nav-next" href="#">next day →</a>
+</nav>
+
+<script>
+  const currentDay = 13;
+  const FIRST_DAY  = 0;
+  const LAST_DAY   = 13; // ← bump this when you add a new day
+  const p = document.getElementById('nav-prev'), n = document.getElementById('nav-next');
+  if (currentDay <= FIRST_DAY) p.classList.add('hidden'); else p.href = `../day-${currentDay-1}/index.html`;
+  if (currentDay >= LAST_DAY)  n.classList.add('hidden'); else n.href = `../day-${currentDay+1}/index.html`;
+</script>
+
+
+<!-- PAGE 1 -->
+<div class="page">
+  <div class="tape"></div>
+  <div class="holes">
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div>
+  </div>
+
+  <div class="date-stamp">March 27, 2026 &nbsp;·&nbsp; built something real, then doubted it</div>
+  <div class="day-title">Day <span>13</span><br>Organized Code</div>
+  <div class="subtitle">a dev diary by scar &nbsp;/&nbsp; episode 13 of ∞</div>
+
+  <p class="opener">
+    Built a real contact manager today. Add contacts, view them, search them, delete them,
+    save them to a file. Five functions. Seventy lines. Thirty minutes.
+    Then spent fifteen minutes being talked into doubting it by an AI.
+    <em>The irony is not lost on me.</em>
+  </p>
+
+  <div class="label">what i actually built</div>
+  <p>
+    A proper application. Not a script that runs once and forgets everything.
+    Contacts persist between sessions. Phone numbers validate.
+    Delete rewrites the file without the removed line — like it was never there.
+    Search finds names. View shows everything.
+    Each function does exactly one thing and minds its own business.
+    <span class="hl">This is how real software is structured.</span>
+    I just built real software.
+  </p>
+
+  <div class="label">the bugs (i know about them, i'm leaving them)</div>
+  <p>
+    Search prints "not found" once for every contact in the file.
+    Ten contacts, zero matches? Ten announcements of failure.
+    Very thorough. Completely unnecessary.
+    The delete function will crash if the contacts file doesn't exist yet.
+    The loop in search serves no purpose.
+    I know all of this. I'm leaving it. Not because I'm lazy —
+    because these are exactly the kinds of bugs you fix naturally
+    after building five more projects. <span class="strike">Obsessing now</span> would be the real mistake.
+  </p>
+
+  <div class="pg-num">1 / 3</div>
+</div>
+
+
+<!-- PAGE 2 -->
+<div class="page">
+  <div class="holes">
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div>
+  </div>
+
+  <div class="label">the perfectionism trap (15 minutes i'm not getting back)</div>
+  <p>
+    Code worked. Tested it. Worked again. Should've stopped.
+    Instead, another AI started suggesting improvements —
+    edge cases, more error handling, cleaner patterns.
+    And I, a person who has been coding for thirteen days,
+    started seriously considering whether my contact manager
+    was architecturally sound enough.
+  </p>
+
+  <div class="callout">
+    Fifteen minutes of spiral. Zero improvements shipped.
+    Done and working beats perfect and overthinking every single time.
+    The code had minor bugs. It also had four fully working features.
+    One of these facts mattered more than the other.
+    I spent fifteen minutes on the wrong one.
+  </div>
+
+  <div class="label">what i did right (there's a lot)</div>
+  <p>
+    Phone validation with
+    <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">try/except</code>
+    — invalid input caught, asked again, no crash.
+    File operations with proper error handling —
+    <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">FileNotFoundError</code>
+    caught where it counts.
+    <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">main()</code>
+    orchestrates, doesn't do the work — the other functions do the work.
+    Read some sample code for the delete logic, understood the pattern,
+    rewrote it myself. <span class="hl">That's learning, not cheating.</span>
+    There's a difference and I'm getting better at knowing which one I'm doing.
+  </p>
+
+  <div class="sig">
+    <div class="sig-name">— scar</div>
+    <div class="sig-time">late march 27 &nbsp;·&nbsp; shipped it, survived it</div>
+  </div>
+
+  <div class="pg-num">2 / 3</div>
+</div>
+
+
+<!-- PAGE 3 — Short closer -->
+<div class="page page-last">
+  <div class="tape tape-b"></div>
+  <div class="holes">
+    <div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div>
+  </div>
+
+  <div class="label">the actual realization</div>
+
+  <p class="closer">
+    Built a contact manager in thirty minutes.
+    Then spent fifteen minutes doubting it.
+    <br><br>
+    The first thirty mattered.
+    <strong>The fifteen didn't.</strong>
+    <br><br>
+    Ship the thing. Fix the bugs later.
+    Perfectionism isn't caution — it's just fear
+    with better vocabulary.
+  </p>
+
+  <div class="pg-num">3 / 3</div>
+</div>
+
+
+<script>
+  (function(){
+    var root = document.documentElement;
+    var btn  = document.getElementById('theme-toggle');
+    var saved = localStorage.getItem('diary-theme') || 'light';
+    root.setAttribute('data-theme', saved);
+    if (btn) btn.textContent = saved === 'dark' ? '☀ light' : '☾ dark';
+    if (btn) btn.addEventListener('click', function(){
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('diary-theme', next);
+      btn.textContent = next === 'dark' ? '☀ light' : '☾ dark';
+    });
+  })();
+</script>
+
+</body>
+</html>
