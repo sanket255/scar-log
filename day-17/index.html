@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 17 — Objects Are Real</title>
+<link rel="stylesheet" href="../shared.css">
+</head>
+<body>
+
+<nav class="nav-bar">
+  <a class="nav-btn" id="nav-prev" href="#">← prev day</a>
+  <div class="nav-center"><a href="../index.html">↑ all entries</a><button id="theme-toggle">☾ dark</button></div>
+  <a class="nav-btn" id="nav-next" href="#">next day →</a>
+</nav>
+
+<script>
+  const currentDay = 17;
+  const FIRST_DAY  = 0;
+  const LAST_DAY   = 17; // ← bump this when you add a new day
+  const p = document.getElementById('nav-prev'), n = document.getElementById('nav-next');
+  if (currentDay <= FIRST_DAY) p.classList.add('hidden'); else p.href = `../day-${currentDay-1}/index.html`;
+  if (currentDay >= LAST_DAY)  n.classList.add('hidden'); else n.href = `../day-${currentDay+1}/index.html`;
+</script>
+
+
+<!-- PAGE 1 -->
+<div class="page">
+  <div class="tape"></div>
+  <div class="holes">
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div>
+  </div>
+
+  <div class="date-stamp">March 30, 2026 &nbsp;·&nbsp; late evening, two entries one night</div>
+  <div class="day-title">Day <span>17</span><br>Objects Are Real</div>
+  <div class="subtitle">a dev diary by scar &nbsp;/&nbsp; episode 17 of ∞</div>
+
+  <p class="opener">
+    Built my first real class today. Not understanding it in theory —
+    everyone understands it in theory. <em>Actually using it.</em>
+    Made four people from one blueprint. Called methods on them.
+    Got different results from the same code.
+    The penny dropped. It took 17 days but it dropped.
+  </p>
+
+  <div class="label">what a class actually is</div>
+  <p>
+    A blueprint. A template. A recipe before you make the cake —
+    except once you have the recipe you can make infinite cakes,
+    each one with different flavours, and they're all still cakes.
+    The class defines the shape. The object is the actual thing.
+  </p>
+
+  <div class="callout">
+    <code style="font-family:'DM Mono',monospace;font-size:13px;padding:1px 5px;border-radius:2px">class People:</code> — here's the blueprint.<br><br>
+    <code style="font-family:'DM Mono',monospace;font-size:13px;padding:1px 5px;border-radius:2px">p1 = People("sanket", 19, "Mumbai")</code> — here's a person made from it.<br><br>
+    <code style="font-family:'DM Mono',monospace;font-size:13px;padding:1px 5px;border-radius:2px">p2 = People("riti", 18, "mumbai")</code> — here's another one.<br><br>
+    Same blueprint. Completely different people. This is the whole idea.
+  </div>
+
+  <div class="label">what __init__ does (it's not scary)</div>
+  <p>
+    Runs automatically the moment you create an object.
+    You pass in the values, <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">__init__</code>
+    receives them, attaches them to the object with
+    <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">self</code>.
+    <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">self</code>
+    just means <em>this specific object I'm creating right now</em> —
+    not the class, not some other object, <em>this one.</em>
+    <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">self.name = name</code>
+    means "this person's name is whatever was passed in."
+    Simple once you stop treating it like a keyword with mystical powers.
+  </p>
+
+  <div class="pg-num">1 / 3</div>
+</div>
+
+
+<!-- PAGE 2 -->
+<div class="page">
+  <div class="holes">
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div>
+  </div>
+
+  <div class="label">the method thing (same code, different results)</div>
+  <p>
+    Added an <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">info()</code> method.
+    Called <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">p1.info()</code> — got Sanket's data.
+    Called <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">p2.info()</code> — got Riti's data.
+    Same method. Same line of code. Completely different output.
+    <span class="hl">That's not a trick. That's the entire point of objects.</span>
+    The method belongs to whoever's calling it.
+  </p>
+
+  <div class="callout">
+    sanket is 19 and live in Mumbai<br>
+    riti is 18 and live in mumbai<br>
+    jon is 23 and live in san F<br>
+    krsna is 37 and live in delhi<br><br>
+    Four objects. One blueprint. Twenty lines of code.
+    This output used to require four separate functions or a lot of manual repetition.
+    Now it's a loop and a method call.
+    <em>Organization changes everything.</em>
+  </div>
+
+  <div class="label">why oop exists (finally makes sense)</div>
+  <p>
+    Before: functions scattered everywhere, data floating around separately,
+    trying to remember what connects to what.
+    Now: data and the functions that use it live in the same place.
+    The contact manager, the weather app, the quiz game —
+    all of them would be cleaner as classes. I can see it now.
+    Couldn't see it three days ago.
+    That's what foundations do — they make the stuff you already built
+    suddenly look different.
+  </p>
+
+  <div class="sig">
+    <div class="sig-name">— scar</div>
+    <div class="sig-time">late March 30 &nbsp;·&nbsp; 2:30AM, worth it</div>
+  </div>
+
+  <div class="pg-num">2 / 3</div>
+</div>
+
+
+<!-- PAGE 3 — Short closer -->
+<div class="page page-last">
+  <div class="tape tape-b"></div>
+  <div class="holes">
+    <div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div>
+  </div>
+
+  <div class="label">the actual realization</div>
+
+  <p class="closer">
+    Created four people from one blueprint.
+    Finally understand what "object" means.
+    <br><br>
+    OOP isn't magic. It's just putting related things
+    in the same place so they stop getting lost.
+    Data that belongs to a thing lives inside that thing.
+    <strong>Functions that belong to a thing go inside that thing.</strong>
+    <br><br>
+    That's it. 17 days to get here.
+    Going to sleep now.
+  </p>
+
+  <div class="pg-num">3 / 3</div>
+</div>
+
+
+<script>
+  (function(){
+    var root = document.documentElement;
+    var btn  = document.getElementById('theme-toggle');
+    var saved = localStorage.getItem('diary-theme') || 'light';
+    root.setAttribute('data-theme', saved);
+    if (btn) btn.textContent = saved === 'dark' ? '☀ light' : '☾ dark';
+    if (btn) btn.addEventListener('click', function(){
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('diary-theme', next);
+      btn.textContent = next === 'dark' ? '☀ light' : '☾ dark';
+    });
+  })();
+</script>
+
+</body>
+</html>
