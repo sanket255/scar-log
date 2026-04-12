@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 16 — Errors Have Names</title>
+<link rel="stylesheet" href="../shared.css">
+</head>
+<body>
+
+<nav class="nav-bar">
+  <a class="nav-btn" id="nav-prev" href="#">← prev day</a>
+  <div class="nav-center"><a href="../index.html">↑ all entries</a><button id="theme-toggle">☾ dark</button></div>
+  <a class="nav-btn" id="nav-next" href="#">next day →</a>
+</nav>
+
+<script>
+  const currentDay = 16;
+  const FIRST_DAY  = 0;
+  const LAST_DAY   = 17; // ← bump this when you add a new day
+  const p = document.getElementById('nav-prev'), n = document.getElementById('nav-next');
+  if (currentDay <= FIRST_DAY) p.classList.add('hidden'); else p.href = `../day-${currentDay-1}/index.html`;
+  if (currentDay >= LAST_DAY)  n.classList.add('hidden'); else n.href = `../day-${currentDay+1}/index.html`;
+</script>
+
+
+<!-- PAGE 1 -->
+<div class="page">
+  <div class="tape"></div>
+  <div class="holes">
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div>
+  </div>
+
+  <div class="date-stamp">March 30, 2026 &nbsp;·&nbsp; sunday evening, errors finally make sense</div>
+  <div class="day-title">Day <span>16</span><br>Errors Have Names</div>
+  <div class="subtitle">a dev diary by scar &nbsp;/&nbsp; episode 16 of ∞</div>
+
+  <p class="opener">
+    Turns out exceptions aren't a mysterious force that crashes your program
+    for unknowable reasons. They're just errors with names.
+    Specific, descriptive, <em>catchable</em> names.
+    I've been writing
+    <code style="font-family:'DM Mono',monospace;font-size:16px;background:var(--cream);padding:1px 6px;border-radius:2px">except Exception</code>
+    for two weeks like a person who treats every illness with the same medicine
+    and wonders why the results are inconsistent.
+  </p>
+
+  <div class="label">errors are just vocabulary</div>
+  <p>
+    <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">ValueError</code> —
+    you gave it text, it expected a number. Data type mismatch. Your fault probably.
+  </p>
+  <p>
+    <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">FileNotFoundError</code> —
+    the file doesn't exist. Either you typo'd the name or you forgot to create it.
+    Also probably your fault.
+  </p>
+  <p>
+    <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">IOError</code> —
+    the file exists but you can't read or write it. Permissions. Corruption. Something external.
+    Maybe not your fault this time.
+  </p>
+  <p>
+    <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">Exception</code> —
+    the catch-all. Anything that didn't match the ones above.
+    <span class="hl">Fine for hobby projects. Not enough for production.</span>
+  </p>
+
+  <div class="pg-num">1 / 3</div>
+</div>
+
+
+<!-- PAGE 2 -->
+<div class="page">
+  <div class="holes">
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div>
+  </div>
+
+  <div class="label">what i built (small, precise)</div>
+  <p>
+    A file reader with three different catches.
+    File doesn't exist? One message. Can't read it? Different message.
+    Something else entirely? Tell me what it was.
+    Ten minutes. Thirty lines. <em>Completely understood.</em>
+  </p>
+
+  <div class="callout">
+    The whole point: you can handle each error type differently.
+    A missing file needs a different response than a corrupted one.
+    Catching everything under
+    <code style="font-family:'DM Mono',monospace;font-size:13px;padding:1px 5px;border-radius:2px">Exception</code>
+    is like a doctor diagnosing everything as "being unwell."
+    Technically covers it. Completely useless in practice.
+  </div>
+
+  <div class="label">hobby code vs thoughtful code</div>
+  <p>
+    Generic
+    <code style="font-family:'DM Mono',monospace;font-size:13px;background:var(--cream);padding:1px 6px;border-radius:2px">Exception</code>
+    works fine when you're the only one using your program
+    and you roughly know what might go wrong.
+    The moment someone else touches it — or the moment you touch it
+    six months later with no memory of writing it —
+    specific error names are the difference between
+    <em>"File not found"</em> and <em>"Error: [Errno 2] No such file or directory: 'contacts.txt'"</em>
+    which tells you nothing useful when you're panicking at 2AM.
+    Which is when these things always happen.
+    <span class="hl">Name your errors. Handle them specifically. Sleep better.</span>
+  </p>
+
+  <div class="sig">
+    <div class="sig-name">— scar</div>
+    <div class="sig-time">March 30, evening &nbsp;·&nbsp; exceptions: named, caught, understood</div>
+  </div>
+
+  <div class="pg-num">2 / 3</div>
+</div>
+
+
+<!-- PAGE 3 — Short closer -->
+<div class="page page-last">
+  <div class="tape tape-b"></div>
+  <div class="holes">
+    <div class="hole"></div><div class="hole"></div>
+    <div class="hole"></div><div class="hole"></div>
+  </div>
+
+  <div class="label">the actual realization</div>
+
+  <p class="closer">
+    Exceptions aren't mysterious. They're just errors
+    that Python was polite enough to label for you.
+    <br><br>
+    Once you know the names, you can talk back.
+    <strong>That's all error handling is</strong> —
+    a conversation between your code and the things
+    that are about to go wrong.
+    <br><br>
+    Now I know the vocabulary.
+  </p>
+
+  <div class="pg-num">3 / 3</div>
+</div>
+
+
+<script>
+  (function(){
+    var root = document.documentElement;
+    var btn  = document.getElementById('theme-toggle');
+    var saved = localStorage.getItem('diary-theme') || 'light';
+    root.setAttribute('data-theme', saved);
+    if (btn) btn.textContent = saved === 'dark' ? '☀ light' : '☾ dark';
+    if (btn) btn.addEventListener('click', function(){
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('diary-theme', next);
+      btn.textContent = next === 'dark' ? '☀ light' : '☾ dark';
+    });
+  })();
+</script>
+
+</body>
+</html>
